@@ -17,6 +17,8 @@ public class HamSpam {
 	 * than 1 and not equal to the ham number 
 	 */
 	public HamSpam(int hamNumber, int spamNumber) {
+		this.hamNumber = hamNumber;
+		this.spamNumber = spamNumber;
 	}
 
 	/**
@@ -30,11 +32,15 @@ public class HamSpam {
 	 * @return the hamspam value, as a String
 	 */
 	public String getValue(int n) {
-		if (n == 3) {
+		if ((n % this.hamNumber) == 0 && (n % this.spamNumber) == 0) {
+			return "hamspam";
+		}
+
+		if ((n % this.hamNumber) == 0) {
 			return "ham";
 		}
 
-		if (n == 4) {
+		if ((n % this.spamNumber) == 0) {
 			return "spam";
 		}
 		
@@ -59,6 +65,12 @@ public class HamSpam {
 	 * @return the array of hamspam values
 	 */
 	public String[] getValues(int start, int end) {
-        	return new String[] {"1", "2", "ham", "spam"};
+		String[] arr = new String[end - start + 1];
+
+		for(int i = 0; i <= (end - start); i++) {
+			arr[i] = getValue(start + i);
+		}
+
+        return arr;
 	}
 }
