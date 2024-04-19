@@ -34,7 +34,10 @@ public class TfIdfComparator implements Comparator<DocumentId> {
 
 	@Override
 	public int compare(DocumentId o1, DocumentId o2) {
-		return searchEngine.tfIdf(o1, term) > searchEngine.tfIdf(o2, term) ? -1
-				: searchEngine.tfIdf(o1, term) < searchEngine.tfIdf(o2, term) ? 1 : o1.id.compareTo(o2.id);
+		return searchEngine.tfIdf(o1, term) > searchEngine.tfIdf(o2, term)
+				? -1
+				: searchEngine.tfIdf(o1, term) < searchEngine.tfIdf(o2, term)
+						? 1
+						: o1.id.compareTo(o2.id);
 	}
 }

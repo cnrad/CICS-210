@@ -186,10 +186,10 @@ public class SearchEngine {
 	 */
 	public List<DocumentId> relevanceLookup(String term) {
 		if (index.get(term) == null)
-			return new ArrayList<DocumentId>();
+			return new ArrayList<DocumentId>(); // empty list
 
-		List<DocumentId> docs = new ArrayList<DocumentId>(index.get(term));
-		Collections.sort(docs, new TfIdfComparator(this, term));
+		List<DocumentId> docs = new ArrayList<DocumentId>(index.get(term)); // create a new list of documents
+		Collections.sort(docs, new TfIdfComparator(this, term)); // sorting the list with the Collections method
 
 		return docs;
 	}
